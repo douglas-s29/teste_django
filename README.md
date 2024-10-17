@@ -1,4 +1,4 @@
-```markdown
+```
 # Teste Django - Controle de Tarefas e Registro de Tempo
 
 Este projeto é uma aplicação web para o controle de tarefas e registro de tempo de trabalho. Foi desenvolvido utilizando o framework Django. O sistema permite o cadastro de tarefas, registro de tempo associado às tarefas e oferece funcionalidades de listagem e filtros sobre o tempo de trabalho cadastrado por cada usuário.
