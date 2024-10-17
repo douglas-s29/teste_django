@@ -1,0 +1,20 @@
+{% extends 'tarefas/base.html' %}
+
+{% block title %}Início{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center">Bem-vindo, {{ user.username }}</h2>
+
+    <!-- Centralizando os botões -->
+    <div class="d-flex justify-content-center mt-3">
+        <a href="{% url 'create_task' %}" class="btn btn-primary mx-2">Criar Tarefa</a>
+        <a href="{% url 'tasks' %}" class="btn btn-secondary mx-2">Tarefas Realizadas</a>
+
+        <!-- Mostrar o botão de gerenciamento de usuários apenas para superusuários -->
+        {% if user.is_superuser %}
+            <a href="{% url 'manage_users' %}" class="btn btn-warning mx-2">Gerenciar Usuários</a>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

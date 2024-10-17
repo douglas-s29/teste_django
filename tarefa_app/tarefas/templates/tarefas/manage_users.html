@@ -1,0 +1,37 @@
+{% extends 'tarefas/base.html' %}
+{% block title %}Gerenciamento de Usuários{% endblock %}
+{% block content %}
+<div class="container mt-5">
+    <h2 class="mb-4">Gerenciamento de Usuários</h2>
+
+    <table class="table table-bordered table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th>Nome de Usuário</th>
+                <th>E-mail</th>
+                <th>Admin</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+            <tr>
+                <td>{{ user.username }}</td>
+                <td>{{ user.email }}</td>
+                <td>
+                    <form method="POST" action="{% url 'toggle_admin' user.id %}">
+                        {% csrf_token %}
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" name="is_admin" {% if user.is_superuser %}checked{% endif %} onchange="this.form.submit();">
+                        </div>
+                    </form>
+                </td>
+                <td>
+                    <a href="{% url 'delete_user' user.id %}" class="btn btn-sm btn-danger" onclick="return confirm('Tem certeza que deseja excluir este usuário?');">Excluir</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

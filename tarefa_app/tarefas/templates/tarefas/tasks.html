@@ -1,0 +1,58 @@
+{% extends 'tarefas/base.html' %}
+{% block title %}Minhas Tarefas{% endblock %}
+{% block content %}
+<h2>Minhas Tarefas</h2>
+
+<form method="get" class="form-inline mb-3">
+    <input type="text" name="search" class="form-control mr-sm-2" placeholder="Pesquisar" value="{{ request.GET.search }}">
+    <button type="submit" class="btn btn-outline-success my-2 my-sm-0">Pesquisar</button>
+</form>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Título</th>
+            <th>Descrição</th>  <!-- Nova coluna para Descrição -->
+            <th>Usuário</th>
+            <th>Data de Criação</th>
+            <th>Início</th>
+            <th>Fim</th>
+            <th>Tempo Gasto</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for task in tasks %}
+        <tr>
+            <td>{{ task.id }}</td>
+            <td>{{ task.titulo }}</td>
+            <td>{{ task.descricao }}</td> <!-- Exibe a descrição da tarefa -->
+            <td>{{ task.user.username }}</td>
+            <td>{{ task.data_criacao|date:"d/m/Y H:i" }}</td>
+            <td>{{ task.inicio|date:"d/m/Y H:i" }}</td>
+            <td>
+                {% if task.fim %}
+                    {{ task.fim|date:"d/m/Y H:i" }}
+                {% else %}
+                    Em andamento
+                {% endif %}
+            </td>
+            <td>{{ task.tempo_gasto }}</td>
+            <td>
+                <a href="{% url 'edit_task' task.id %}" class="btn btn-sm btn-primary">Editar</a>
+                <a href="{% url 'delete_task' task.id %}" class="btn btn-sm btn-danger">Excluir</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="9">Nenhuma tarefa encontrada.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+
+<a href="{% url 'create_task' %}" class="btn btn-success">Criar Nova Tarefa</a>
+{% endblock %}

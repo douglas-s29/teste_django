@@ -1,0 +1,32 @@
+{% extends 'tarefas/base.html' %}
+{% block title %}Criar Nova Tarefa{% endblock %}
+{% block content %}
+<h2>Criar Nova Tarefa</h2>
+
+<form method="post">
+    {% csrf_token %}
+    
+    <div class="form-group">
+        <label for="titulo">Título:</label>
+        {{ form.titulo }} <!-- Exibe o campo título com o widget correto -->
+    </div>
+
+    <div class="form-group">
+        <label for="descricao">Descrição:</label>
+        {{ form.descricao }} <!-- Exibe o campo descrição -->
+    </div>
+
+    <div class="form-group">
+        <label for="inicio">Início:</label>
+        {{ form.inicio }} <!-- Exibe o campo de início -->
+    </div>
+
+    <div class="form-group">
+        <label for="fim">Fim:</label>
+        {{ form.fim }} <!-- Exibe o campo de fim -->
+    </div>
+
+    <button type="submit" class="btn btn-success">Salvar</button>
+    <a href="{% url 'tasks' %}" class="btn btn-secondary">Voltar</a>
+</form>
+{% endblock %}

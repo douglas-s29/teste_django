@@ -1,0 +1,30 @@
+{% extends 'tarefas/base.html' %}
+{% block title %}Registros de Tempo{% endblock %}
+{% block content %}
+<h2>Registros de Tempo</h2>
+<!-- Formulário de filtragem -->
+<table class="table">
+    <thead>
+        <tr>
+            <th>Tarefa</th>
+            <th>Data do Registro</th>
+            <th>Duração</th>
+            <th>Descrição</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for entry in time_entries %}
+        <tr>
+            <td>{{ entry.task.descricao }}</td>
+            <td>{{ entry.data_registro|date:"d/m/Y H:i" }}</td>
+            <td>{{ entry.duracao }}</td>
+            <td>{{ entry.descricao }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="4">Nenhum registro encontrado.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
