@@ -95,27 +95,28 @@ python -m venv venv
 ### 3. Ative o ambiente virtual
 
 - No Windows:
-
+ ## Acesse a ...\teste_django
 ```bash
 venv\Scripts\activate
 ```
 
 - No Linux/Mac:
-
+ ## Acesse a ...\teste_django
 ```bash
 source venv/bin/activate
 ```
 
-### 4. Instale as dependências
-
+### 4. Instale as dependências localizado no caminho ...\teste_django\requirements.txt
+ 
 ```bash
 pip install -r requirements.txt
 ```
 
 ### 5. Execute as migrações
-
+ ## Acesse a ...\teste_django\tarefa_app e executa os comandos a seguir:
 ```bash
 python manage.py migrate
+python manage.py makemigrations
 ```
 
 ### 6. Crie um superusuário
@@ -127,7 +128,7 @@ python manage.py createsuperuser
 Siga as instruções e crie o usuário admin.
 
 ### 7. Execute o servidor local
-
+## Certifique de esta na pasta correta que contém o arquivo manage.py (...\teste_django\tarefa_app) e executa o comando a seguir:
 ```bash
 python manage.py runserver
 ```
