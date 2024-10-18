@@ -88,6 +88,7 @@ git clone https://github.com/douglas-s29/teste_django.git
 
 ### 2. Crie um ambiente virtual
 
+#### Acesse o caminho (...\teste_django) e executa o caminho para criar o ambiente virtual
 ```bash
 python -m venv venv
 ```
@@ -95,13 +96,13 @@ python -m venv venv
 ### 3. Ative o ambiente virtual
 
 - No Windows:
- ## Acesse a ...\teste_django
+ 
 ```bash
 venv\Scripts\activate
 ```
 
 - No Linux/Mac:
- ## Acesse a ...\teste_django
+ #### Acesse o caminho (...\teste_django)
 ```bash
 source venv/bin/activate
 ```
@@ -113,7 +114,7 @@ pip install -r requirements.txt
 ```
 
 ### 5. Execute as migrações
- ## Acesse a ...\teste_django\tarefa_app e executa os comandos a seguir:
+ #### Acesse o caminho (...\teste_django\tarefa_app) e executa os comandos a seguir:
 ```bash
 python manage.py migrate
 python manage.py makemigrations
@@ -128,7 +129,7 @@ python manage.py createsuperuser
 Siga as instruções e crie o usuário admin.
 
 ### 7. Execute o servidor local
-## Certifique de esta na pasta correta que contém o arquivo manage.py (...\teste_django\tarefa_app) e executa o comando a seguir:
+#### Certifique de esta na pasta correta que contém o arquivo manage.py (...\teste_django\tarefa_app) e executa o comando a seguir:
 ```bash
 python manage.py runserver
 ```
