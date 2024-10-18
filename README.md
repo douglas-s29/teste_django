@@ -180,11 +180,3 @@ A aplicação inclui um sistema de autenticação completo:
 
 Os filtros permitem buscar tarefas por título, descrição, usuário, ou data de criação. A busca é feita diretamente no campo de pesquisa, retornando resultados filtrados com base nos critérios inseridos.
 
-## Informações de Acesso
-
-Ao iniciar o projeto, você pode utilizar o seguinte usuário para acessar a aplicação:
-
-- **Login**: `admin`
-- **Senha**: `admin`
-
-Esse usuário tem permissões de administrador e pode gerenciar tarefas e usuários.
